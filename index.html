@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Calm Cup — Acompanhe todos os jogos da Copa do Mundo 2026, simule resultados, explore a história completa e teste seus conhecimentos com o quiz interativo.">
-  <meta name="keywords" content="Copa do Mundo 2026, futebol, app, simulador, estatísticas, quiz, FIFA">
-  <meta name="theme-color" content="#08120a">
+  <meta name="keywords" content="Copa do Mundo 2026, futebol, app, simulador, estatísticas, quiz, FIFA, Android">
+  <meta name="theme-color" content="#07110a">
   <meta property="og:title" content="Calm Cup — Copa do Mundo 2026">
   <meta property="og:description" content="O app completo para acompanhar a Copa do Mundo 2026. Gratuito na Play Store.">
   <meta property="og:type" content="website">
@@ -18,10 +18,19 @@
 </head>
 <body>
 
+  <!-- SCROLL PROGRESS -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
+        <img src="logo.jpg" alt="Calm Cup" class="nav-logo-img">
         <span class="logo-text">Calm <span class="gold">Cup</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
@@ -30,10 +39,8 @@
         <li><a href="politica-de-privacidade.html">Privacidade</a></li>
         <li><a href="termos-de-uso.html">Termos</a></li>
         <li>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real da Play Store -->
-          <a href="SEU_LINK_PLAY_STORE" class="btn-nav" target="_blank" rel="noopener">
-            Baixar agora
-          </a>
+          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
+          <a href="SEU_LINK_PLAY_STORE" class="btn-nav" target="_blank" rel="noopener">Baixar agora</a>
         </li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
@@ -42,157 +49,189 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+    </div>
+
     <div class="hero-content">
+      <!-- Logo animada -->
+      <div class="hero-logo-wrap">
+        <div class="hero-logo-glow"></div>
+        <div class="hero-logo-ring"></div>
+        <img src="logo.jpg" alt="Calm Cup logo" class="hero-logo">
+      </div>
+
       <div class="hero-badge">⚽ Copa do Mundo 2026</div>
-      <h1 class="hero-title">Calm <span class="gold">Cup</span></h1>
+
+      <h1 class="hero-title">
+        Calm <span class="gold-gradient">Cup</span>
+      </h1>
+
       <p class="hero-subtitle">
         Acompanhe todos os jogos, simule resultados e explore a história
         completa da Copa do Mundo — tudo em um só lugar, gratuitamente.
       </p>
+
       <div class="hero-actions">
-        <!-- Substitua SEU_LINK_PLAY_STORE pelo link real da Play Store -->
+        <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
         <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener">
           <i class="fab fa-google-play"></i>
           Baixar na Play Store
         </a>
         <a href="#funcionalidades" class="btn-secondary">
-          Ver funcionalidades
-          <i class="fas fa-chevron-down"></i>
+          Ver funcionalidades <i class="fas fa-chevron-down"></i>
         </a>
       </div>
     </div>
+
     <div class="hero-scroll">
       <div class="scroll-indicator"></div>
     </div>
   </section>
 
-  <!-- STATS BANNER -->
+  <!-- ═══════════ STATS ═══════════ -->
   <section class="stats-banner">
     <div class="stats-container">
-      <div class="stat-item">
-        <span class="stat-number">80</span>
+      <div class="stat-item" data-reveal data-delay="100">
+        <span class="stat-number" data-counter="80">0</span>
         <span class="stat-label">Jogos</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">48</span>
+      <div class="stat-divider" data-reveal="fade" data-delay="150"></div>
+      <div class="stat-item" data-reveal data-delay="200">
+        <span class="stat-number" data-counter="48">0</span>
         <span class="stat-label">Seleções</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">23</span>
+      <div class="stat-divider" data-reveal="fade" data-delay="250"></div>
+      <div class="stat-item" data-reveal data-delay="300">
+        <span class="stat-number" data-counter="23">0</span>
         <span class="stat-label">Edições históricas</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">16</span>
+      <div class="stat-divider" data-reveal="fade" data-delay="350"></div>
+      <div class="stat-item" data-reveal data-delay="400">
+        <span class="stat-number" data-counter="16">0</span>
         <span class="stat-label">Estádios</span>
       </div>
     </div>
   </section>
 
-  <!-- FUNCIONALIDADES -->
+  <!-- ═══════════ FUNCIONALIDADES ═══════════ -->
   <section class="features" id="funcionalidades">
     <div class="section-container">
       <div class="section-header">
-        <span class="section-tag">Funcionalidades</span>
-        <h2 class="section-title">Tudo sobre a Copa do Mundo<br>na palma da sua mão</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-reveal>Funcionalidades</span>
+        <h2 class="section-title" data-reveal data-delay="100">
+          Tudo sobre a Copa do Mundo<br>na palma da sua mão
+        </h2>
+        <p class="section-desc" data-reveal data-delay="200">
           Do acompanhamento completo ao quiz interativo, o Calm Cup reúne
           tudo que um apaixonado por futebol precisa.
         </p>
       </div>
+
       <div class="features-grid">
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="100">
+          <span class="feature-number">01</span>
           <div class="feature-icon"><i class="fas fa-futbol"></i></div>
           <h3>Copa 2026</h3>
-          <p>Acompanhe todos os 80 jogos da Copa do Mundo. Tabela completa, grupos, classificações e detalhes de cada partida atualizados.</p>
+          <p>Acompanhe todos os 80 jogos da Copa do Mundo. Tabela completa, grupos, classificações e detalhes de cada partida em tempo real.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="200">
+          <span class="feature-number">02</span>
           <div class="feature-icon"><i class="fas fa-trophy"></i></div>
           <h3>Simulador</h3>
-          <p>Simule resultados, preveja o campeão e crie seus próprios cenários. Simule partidas individuais ou toda a Copa de uma vez.</p>
+          <p>Simule resultados, preveja o campeão e crie seus próprios cenários. Simule partidas individuais ou a Copa inteira de uma vez.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="300">
+          <span class="feature-number">03</span>
           <div class="feature-icon"><i class="fas fa-clock-rotate-left"></i></div>
           <h3>História da Copa</h3>
-          <p>Explore todas as 23 edições da Copa do Mundo desde 1930. Campeões históricos, finais e principais dados de cada torneio.</p>
+          <p>Explore todas as 23 edições desde 1930. Campeões históricos, finais marcantes e dados completos de cada torneio.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="200">
+          <span class="feature-number">04</span>
           <div class="feature-icon"><i class="fas fa-chart-column"></i></div>
           <h3>Estatísticas</h3>
-          <p>Gráficos interativos com gols por edição, títulos por país e comparativos históricos de todos os campeonatos do mundo.</p>
+          <p>Gráficos interativos com gols por edição, títulos por país e comparativos históricos de todos os campeonatos.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="300">
+          <span class="feature-number">05</span>
           <div class="feature-icon"><i class="fas fa-circle-question"></i></div>
           <h3>Quiz Interativo</h3>
-          <p>Teste seus conhecimentos sobre a Copa do Mundo com 10 perguntas aleatórias por rodada. Quanto você sabe sobre o torneio?</p>
+          <p>Teste seus conhecimentos com 10 perguntas aleatórias por rodada sobre a história da Copa do Mundo.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" data-reveal data-delay="400">
+          <span class="feature-number">06</span>
           <div class="feature-icon"><i class="fas fa-location-dot"></i></div>
           <h3>Estádios</h3>
-          <p>Conheça os 16 estádios da Copa 2026 distribuídos pelos EUA, Canadá e México, com capacidade e informações detalhadas.</p>
+          <p>Conheça os 16 estádios da Copa 2026 nos EUA, Canadá e México, com capacidade e informações detalhadas.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
+  <!-- ═══════════ SOBRE ═══════════ -->
   <section class="about" id="sobre">
     <div class="section-container">
       <div class="about-grid">
+
         <div class="about-content">
-          <span class="section-tag">Sobre o app</span>
-          <h2 class="section-title">Feito para quem vive<br>a paixão pelo futebol</h2>
-          <p>
+          <span class="section-tag" data-reveal>Sobre o app</span>
+          <h2 class="section-title" data-reveal data-delay="100">
+            Feito para quem vive<br>a paixão pelo futebol
+          </h2>
+          <p data-reveal data-delay="200">
             O Calm Cup é um aplicativo desenvolvido com atenção aos detalhes para
-            os apaixonados pela Copa do Mundo. Com design moderno em tema escuro e
+            os apaixonados pela Copa do Mundo. Com design moderno em tema escuro com
             detalhes em dourado, você vive cada momento do maior torneio de futebol.
           </p>
-          <p>
+          <p data-reveal data-delay="300">
             Desenvolvido em Flutter e disponível gratuitamente para Android, o app
             reúne dados completos da Copa 2026 e um acervo histórico de 1930 a 2022,
             tudo em português brasileiro.
           </p>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real da Play Store -->
-          <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener" style="margin-top:12px;">
+          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
+          <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener"
+             style="margin-top:12px;" data-reveal data-delay="400">
             <i class="fab fa-google-play"></i>
             Baixar gratuitamente
           </a>
         </div>
+
         <div class="about-highlights">
-          <div class="highlight-item">
+          <div class="highlight-item" data-reveal="right" data-delay="100">
             <div class="highlight-icon"><i class="fas fa-mobile-screen"></i></div>
             <div>
               <h4>Interface moderna</h4>
               <p>Design dark elegante com navegação simples e fluida para a melhor experiência</p>
             </div>
           </div>
-          <div class="highlight-item">
+          <div class="highlight-item" data-reveal="right" data-delay="200">
             <div class="highlight-icon"><i class="fas fa-database"></i></div>
             <div>
               <h4>Dados atualizados</h4>
               <p>Informações da Copa 2026 sincronizadas via API pública e confiável</p>
             </div>
           </div>
-          <div class="highlight-item">
+          <div class="highlight-item" data-reveal="right" data-delay="300">
             <div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
             <div>
               <h4>Privacidade total</h4>
               <p>Nenhum dado pessoal é coletado. Suas simulações ficam somente no seu aparelho</p>
             </div>
           </div>
-          <div class="highlight-item">
+          <div class="highlight-item" data-reveal="right" data-delay="400">
             <div class="highlight-icon"><i class="fas fa-star"></i></div>
             <div>
               <h4>100% gratuito</h4>
@@ -200,32 +239,37 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ═══════════ CTA ═══════════ -->
   <section class="cta">
     <div class="cta-container">
-      <span class="cta-badge">⚽</span>
-      <h2>Pronto para a Copa 2026?</h2>
-      <p>
+      <span class="cta-icon" data-reveal="scale">⚽</span>
+      <h2 data-reveal data-delay="100">Pronto para a Copa 2026?</h2>
+      <p data-reveal data-delay="200">
         Baixe o Calm Cup agora e fique por dentro de tudo sobre
         o maior torneio de futebol do mundo.
       </p>
-      <!-- Substitua SEU_LINK_PLAY_STORE pelo link real da Play Store -->
-      <a href="SEU_LINK_PLAY_STORE" class="btn-primary btn-large" target="_blank" rel="noopener">
+      <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
+      <a href="SEU_LINK_PLAY_STORE" class="btn-primary btn-large" target="_blank" rel="noopener"
+         data-reveal data-delay="300">
         <i class="fab fa-google-play"></i>
         Baixar na Play Store
       </a>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
-        <span class="logo-text">Calm <span class="gold">Cup</span></span>
+        <a href="index.html" class="footer-logo">
+          <img src="logo.jpg" alt="Calm Cup" class="footer-logo-img">
+          <span class="logo-text">Calm <span class="gold">Cup</span></span>
+        </a>
         <p>O seu companheiro para a Copa do Mundo 2026.<br>Disponível gratuitamente para Android.</p>
       </div>
       <div class="footer-links">
@@ -233,7 +277,7 @@
           <h4>Aplicativo</h4>
           <a href="#funcionalidades">Funcionalidades</a>
           <a href="#sobre">Sobre</a>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real da Play Store -->
+          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
           <a href="SEU_LINK_PLAY_STORE" target="_blank" rel="noopener">Baixar</a>
         </div>
         <div class="footer-col">
@@ -248,26 +292,6 @@
     </div>
   </footer>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('open');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

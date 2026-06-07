@@ -30,6 +30,80 @@ body {
 }
 h1, h2, h3, h4 { line-height: 1.15; }
 
+/* ─── CUSTOM CURSOR ──────────────────────────── */
+.has-cursor * { cursor: none !important; }
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  box-shadow: 0 0 12px rgba(255,215,0,0.8), 0 0 4px #FFD700;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+.cursor-dot.big { width: 6px; height: 6px; background: var(--gold-light); }
+
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1.5px solid rgba(255,215,0,0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+.cursor-ring.big { width: 52px; height: 52px; border-color: rgba(255,215,0,0.25); }
+
+.cursor-trail {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99996;
+  will-change: transform, opacity;
+}
+
+@media (hover: none) {
+  .cursor-dot, .cursor-ring, .cursor-trail { display: none; }
+}
+
+/* ─── SPORTS TICKER ──────────────────────────── */
+.ticker-wrap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  overflow: hidden;
+  z-index: 2;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,215,0,0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 11px 0;
+}
+.ticker-wrap:hover .ticker-inner { animation-play-state: paused; }
+.ticker-inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+}
+.ticker-inner span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ─── SCROLL PROGRESS ────────────────────────── */
 .progress-bar {
   position: fixed;
@@ -337,9 +411,9 @@ h1, h2, h3, h4 { line-height: 1.15; }
 }
 .hero-scroll {
   position: absolute;
-  bottom: 36px; left: 50%;
+  bottom: 58px; left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 3;
   animation: fadeIn 1s ease 1.3s both;
 }
 .scroll-indicator {
@@ -480,6 +554,8 @@ h1, h2, h3, h4 { line-height: 1.15; }
   position: relative;
   overflow: hidden;
   cursor: default;
+  will-change: transform;
+  transform-style: flat;
 }
 .feature-card::before {
   content: '';

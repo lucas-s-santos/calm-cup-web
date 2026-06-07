@@ -231,7 +231,7 @@ h1, h2, h3, h4 { line-height: 1.15; }
 /* ── Hero Logo ── */
 .hero-logo-wrap {
   position: relative;
-  width: 148px; height: 148px;
+  width: 160px; height: 160px;
   margin: 0 auto 36px;
   animation: logoEntrance 1.1s var(--ease-out) 0.1s both;
 }
@@ -249,22 +249,19 @@ h1, h2, h3, h4 { line-height: 1.15; }
 }
 .hero-logo-ring {
   position: absolute;
-  inset: -6px;
-  border-radius: 30px;
+  inset: -12px;
+  border-radius: 50%;
   border: 1px solid rgba(255,215,0,0.22);
   animation: ringPulse 3.8s ease-in-out infinite 0.6s;
   pointer-events: none;
 }
 .hero-logo {
-  width: 148px; height: 148px;
-  border-radius: 26px;
-  object-fit: cover;
+  width: 160px; height: 160px;
+  border-radius: 0;
+  object-fit: contain;
   position: relative;
   z-index: 1;
-  box-shadow:
-    0 0 0 1px rgba(255,215,0,0.2),
-    0 0 40px rgba(255,215,0,0.12),
-    0 24px 72px rgba(0,0,0,0.7);
+  filter: drop-shadow(0 0 32px rgba(255,215,0,0.2)) drop-shadow(0 16px 48px rgba(0,0,0,0.6));
   animation: floatLogo 5.5s ease-in-out infinite;
 }
 @keyframes glowPulse {
@@ -687,8 +684,8 @@ h1, h2, h3, h4 { line-height: 1.15; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
   .footer-links   { flex-direction: column; gap: 28px; }
   .hero-title     { letter-spacing: -2.5px; }
-  .hero-logo-wrap, .hero-logo { width: 118px; height: 118px; }
-  .hero-logo      { border-radius: 22px; }
+  .hero-logo-wrap, .hero-logo { width: 120px; height: 120px; }
+  .hero-logo { border-radius: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

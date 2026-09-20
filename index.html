@@ -3,119 +3,280 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calm Cup — Acompanhe todos os jogos da Copa do Mundo 2026, simule resultados, explore a história completa e teste seus conhecimentos com o quiz interativo.">
-  <meta name="keywords" content="Copa do Mundo 2026, futebol, app, simulador, estatísticas, quiz, FIFA, Android">
-  <meta name="theme-color" content="#07110a">
-  <meta property="og:title" content="Calm Cup — Copa do Mundo 2026">
-  <meta property="og:description" content="O app completo para acompanhar a Copa do Mundo 2026. Gratuito na Play Store.">
+  <meta name="description" content="Calm Cup — 11 campeonatos de futebol em um só app: Copa do Mundo 2026, Eurocopa, Champions League, Brasileirão, Libertadores, Copa América e as principais ligas europeias. Bolão com ranking online, simulador e estatísticas. Grátis, sem anúncios.">
+  <meta name="keywords" content="Copa do Mundo 2026, Brasileirão, Champions League, Libertadores, Copa América, Premier League, bolão, futebol, app, Android">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:title" content="Calm Cup — 11 campeonatos em um só app">
+  <meta property="og:description" content="Copa do Mundo, Champions, Brasileirão, Libertadores e mais. Bolão com ranking online, simulador e estatísticas. Grátis e sem anúncios.">
   <meta property="og:type" content="website">
-  <title>Calm Cup — Copa do Mundo 2026</title>
+  <meta property="og:image" content="logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Calm Cup — 11 campeonatos de futebol em um só app</title>
+  <link rel="icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Noto Color Emoji entra por causa das bandeiras: o Windows não traz
+       fonte de emoji de bandeira, e sem ela 🇧🇷 vira o par de letras "BR". -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <!-- Liga o estado inicial da revelação ao rolar. Fica aqui, inline e
+       antes do <body>, pra marcar o documento antes da primeira pintura —
+       se estivesse no script.js o conteúdo piscaria visível e sumiria. -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-  <!-- SCROLL PROGRESS -->
   <div class="progress-bar" id="progressBar"></div>
 
-  <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- NAVBAR -->
+  <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="Calm Cup" class="nav-logo-img">
+        <img src="logo.png" alt="" class="nav-logo-img">
         <span class="logo-text">Calm <span class="gold">Cup</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#campeonatos">Campeonatos</a></li>
         <li><a href="#funcionalidades">Funcionalidades</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><a href="politica-de-privacidade.html">Privacidade</a></li>
-        <li><a href="termos-de-uso.html">Termos</a></li>
         <li>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
-          <a href="SEU_LINK_PLAY_STORE" class="btn-nav" target="_blank" rel="noopener">Baixar agora</a>
+          <!-- TROCAR: link real da Play Store -->
+          <a href="SEU_LINK_PLAY_STORE" class="btn-nav" target="_blank" rel="noopener">Baixar</a>
         </li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- ═══════════ HERO ═══════════ -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="orb orb-4"></div>
-    </div>
-
+  <header class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <!-- Logo animada -->
-      <div class="hero-logo-wrap">
-        <div class="hero-logo-glow"></div>
-        <div class="hero-logo-ring"></div>
-        <img src="logo.png" alt="Calm Cup logo" class="hero-logo">
+
+      <div>
+        <span class="hero-badge"><i class="fas fa-futbol"></i> 11 campeonatos · 1 app</span>
+
+        <h1 class="hero-title">Calm <span class="gold-gradient">Cup</span></h1>
+
+        <p class="hero-subtitle">
+          Copa do Mundo, Champions League, Brasileirão, Libertadores, Copa América,
+          Eurocopa e as principais ligas europeias — jogos, tabelas e classificações
+          em um só lugar. Com bolão, ranking online e tudo funcionando offline.
+        </p>
+
+        <div class="hero-actions">
+          <!-- TROCAR: link real da Play Store -->
+          <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener">
+            <i class="fab fa-google-play"></i> Baixar na Play Store
+          </a>
+          <a href="#campeonatos" class="btn-secondary">
+            Ver campeonatos <i class="fas fa-chevron-down"></i>
+          </a>
+        </div>
+
+        <p class="hero-note">Grátis · Sem anúncios · Sem cadastro</p>
       </div>
 
-      <div class="hero-badge">⚽ Copa do Mundo 2026</div>
+      <!-- Tela do app reconstruída com os mesmos tokens de cor do
+           aplicativo, em vez de um print que envelhece a cada release. -->
+      <div class="phone" role="img" aria-label="Prévia do aplicativo Calm Cup mostrando os jogos do dia">
+        <div class="phone-bar"><strong>Calm Cup</strong></div>
+        <div class="phone-body">
+          <p class="phone-date">sexta-feira, 19 de junho</p>
 
-      <h1 class="hero-title">
-        Calm <span class="gold-gradient">Cup</span>
-      </h1>
+          <div class="phone-section">
+            <i class="fas fa-calendar-day"></i> Jogos de Hoje <span>· todos os campeonatos</span>
+          </div>
 
-      <p class="hero-subtitle">
-        Acompanhe todos os jogos, simule resultados e explore a história
-        completa da Copa do Mundo — tudo em um só lugar, gratuitamente.
-      </p>
+          <div class="match-card">
+            <div class="match-top">
+              <span class="match-chip">🏆 Copa do Mundo</span>
+              <span class="match-live">AO VIVO 67'</span>
+            </div>
+            <div class="match-teams">
+              <span class="match-team"><span class="match-flag">🇧🇷</span> Brasil</span>
+              <span class="match-score">2 – 1</span>
+              <span class="match-team away">Croácia <span class="match-flag">🇭🇷</span></span>
+            </div>
+            <p class="match-venue"><i class="fas fa-location-dot"></i> Los Angeles (SoFi)</p>
+          </div>
 
-      <div class="hero-actions">
-        <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
-        <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener">
-          <i class="fab fa-google-play"></i>
-          Baixar na Play Store
-        </a>
-        <a href="#funcionalidades" class="btn-secondary">
-          Ver funcionalidades <i class="fas fa-chevron-down"></i>
-        </a>
+          <div class="match-card">
+            <div class="match-top">
+              <span class="match-chip">⭐ Champions League</span>
+              <span class="match-time">16:45</span>
+            </div>
+            <div class="match-teams">
+              <span class="match-team"><span class="match-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span> Arsenal</span>
+              <span class="match-score">x</span>
+              <span class="match-team away">Real Madrid <span class="match-flag">🇪🇸</span></span>
+            </div>
+          </div>
+
+          <div class="match-card">
+            <div class="match-top">
+              <span class="match-chip">🇧🇷 Brasileirão</span>
+              <span class="match-time">21:00</span>
+            </div>
+            <div class="match-teams">
+              <span class="match-team"><span class="match-flag">⚽</span> Palmeiras</span>
+              <span class="match-score">x</span>
+              <span class="match-team away">Flamengo <span class="match-flag">⚽</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-nav">
+          <div class="on"><i class="fas fa-home"></i>Início</div>
+          <div><i class="fas fa-globe"></i>Campeonatos</div>
+          <div><i class="fas fa-trophy"></i>Bolão</div>
+          <div><i class="fas fa-clock-rotate-left"></i>História</div>
+          <div><i class="fas fa-chart-column"></i>Stats</div>
+        </div>
       </div>
+
     </div>
+  </header>
 
-    <div class="hero-scroll">
-      <div class="scroll-indicator"></div>
+  <!-- ═══════════ NÚMEROS ═══════════ -->
+  <section class="stats-banner">
+    <div class="stats-container">
+      <div class="stat-item" data-reveal>
+        <span class="stat-number">11</span>
+        <span class="stat-label">Campeonatos</span>
+      </div>
+      <div class="stat-item" data-reveal>
+        <span class="stat-number">23</span>
+        <span class="stat-label">Copas · 1930–2022</span>
+      </div>
+      <div class="stat-item" data-reveal>
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Funciona offline</span>
+      </div>
+      <div class="stat-item" data-reveal>
+        <span class="stat-number">0</span>
+        <span class="stat-label">Anúncios</span>
+      </div>
     </div>
   </section>
 
-  <!-- ═══════════ STATS ═══════════ -->
-  <section class="stats-banner">
-    <div class="stats-container">
-      <div class="stat-item" data-reveal data-delay="100">
-        <span class="stat-number" data-counter="80">0</span>
-        <span class="stat-label">Jogos</span>
+  <!-- ═══════════ CAMPEONATOS ═══════════ -->
+  <section class="competitions" id="campeonatos">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag" data-reveal>Campeonatos</span>
+        <h2 class="section-title" data-reveal>Onze competições,<br>um app só</h2>
+        <p class="section-desc" data-reveal>
+          Cada campeonato com o formato certo — grupos e mata-mata, liga de pontos
+          corridos ou a fase de liga híbrida da nova Champions.
+        </p>
       </div>
-      <div class="stat-divider" data-reveal="fade" data-delay="150"></div>
-      <div class="stat-item" data-reveal data-delay="200">
-        <span class="stat-number" data-counter="48">0</span>
-        <span class="stat-label">Seleções</span>
-      </div>
-      <div class="stat-divider" data-reveal="fade" data-delay="250"></div>
-      <div class="stat-item" data-reveal data-delay="300">
-        <span class="stat-number" data-counter="23">0</span>
-        <span class="stat-label">Edições históricas</span>
-      </div>
-      <div class="stat-divider" data-reveal="fade" data-delay="350"></div>
-      <div class="stat-item" data-reveal data-delay="400">
-        <span class="stat-number" data-counter="16">0</span>
-        <span class="stat-label">Estádios</span>
+
+      <div class="comp-grid">
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🏆</span>
+          <span class="comp-text">
+            <p class="comp-name">Copa do Mundo 2026</p>
+            <p class="comp-meta">Grupos + mata-mata · chaveamento real</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇪🇺</span>
+          <span class="comp-text">
+            <p class="comp-name">Eurocopa</p>
+            <p class="comp-meta">Grupos + mata-mata · 2020 e 2024</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">⭐</span>
+          <span class="comp-text">
+            <p class="comp-name">Champions League</p>
+            <p class="comp-meta">Fase de liga + mata-mata · 3 temporadas</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇧🇷</span>
+          <span class="comp-text">
+            <p class="comp-name">Brasileirão Série A</p>
+            <p class="comp-meta">Pontos corridos · 2 temporadas</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🏆</span>
+          <span class="comp-text">
+            <p class="comp-name">Copa Libertadores</p>
+            <p class="comp-meta">Grupos + mata-mata · 2 temporadas</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🌎</span>
+          <span class="comp-text">
+            <p class="comp-name">Copa América</p>
+            <p class="comp-meta">Grupos + mata-mata · 2024</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+          <span class="comp-text">
+            <p class="comp-name">Premier League</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇪🇸</span>
+          <span class="comp-text">
+            <p class="comp-name">La Liga</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇮🇹</span>
+          <span class="comp-text">
+            <p class="comp-name">Serie A</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇩🇪</span>
+          <span class="comp-text">
+            <p class="comp-name">Bundesliga</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇫🇷</span>
+          <span class="comp-text">
+            <p class="comp-name">Ligue 1</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
+        <div class="comp-row" data-reveal>
+          <span class="comp-badge">🇵🇹</span>
+          <span class="comp-text">
+            <p class="comp-name">Primeira Liga</p>
+            <p class="comp-meta">Pontos corridos · 2025/26</p>
+          </span>
+          <i class="fas fa-chevron-right comp-arrow"></i>
+        </div>
       </div>
     </div>
   </section>
@@ -125,57 +286,69 @@
     <div class="section-container">
       <div class="section-header">
         <span class="section-tag" data-reveal>Funcionalidades</span>
-        <h2 class="section-title" data-reveal data-delay="100">
-          Tudo sobre a Copa do Mundo<br>na palma da sua mão
-        </h2>
-        <p class="section-desc" data-reveal data-delay="200">
-          Do acompanhamento completo ao quiz interativo, o Calm Cup reúne
-          tudo que um apaixonado por futebol precisa.
+        <h2 class="section-title" data-reveal>Muito além<br>da tabela de jogos</h2>
+        <p class="section-desc" data-reveal>
+          Do bolão com ranking online ao chaveamento real da Copa, resolvido
+          contra os resultados de verdade — sem simulação.
         </p>
       </div>
 
       <div class="features-grid">
 
-        <div class="feature-card" data-reveal data-delay="100">
+        <div class="feature-card" data-reveal>
           <span class="feature-number">01</span>
-          <div class="feature-icon"><i class="fas fa-futbol"></i></div>
-          <h3>Copa 2026</h3>
-          <p>Acompanhe todos os 80 jogos da Copa do Mundo. Tabela completa, grupos, classificações e detalhes de cada partida em tempo real.</p>
-        </div>
-
-        <div class="feature-card" data-reveal data-delay="200">
-          <span class="feature-number">02</span>
           <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-          <h3>Simulador</h3>
-          <p>Simule resultados, preveja o campeão e crie seus próprios cenários. Simule partidas individuais ou a Copa inteira de uma vez.</p>
+          <h3>Bolão com ranking online</h3>
+          <p>Palpite nos jogos e dispute o ranking com outras pessoas, separado por campeonato. Escolha um apelido e acompanhe sua posição — ou jogue só no offline, se preferir.</p>
         </div>
 
-        <div class="feature-card" data-reveal data-delay="300">
+        <div class="feature-card" data-reveal>
+          <span class="feature-number">02</span>
+          <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
+          <h3>Chaveamento real da Copa</h3>
+          <p>O mata-mata de 2026 é montado resolvendo os códigos de classificação (1A, W73, melhor 3º) contra a tabela e os placares reais. Não é simulação — é o chaveamento de verdade.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
           <span class="feature-number">03</span>
-          <div class="feature-icon"><i class="fas fa-clock-rotate-left"></i></div>
-          <h3>História da Copa</h3>
-          <p>Explore todas as 23 edições desde 1930. Campeões históricos, finais marcantes e dados completos de cada torneio.</p>
+          <div class="feature-icon"><i class="fas fa-futbol"></i></div>
+          <h3>Jogos de hoje</h3>
+          <p>Todos os campeonatos numa lista só, ordenada por horário, com selo de "ao vivo" e filtro por competição. Placar ao vivo na Copa do Mundo.</p>
         </div>
 
-        <div class="feature-card" data-reveal data-delay="200">
+        <div class="feature-card" data-reveal>
           <span class="feature-number">04</span>
+          <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <h3>Simulador</h3>
+          <p>Simule resultados e veja o chaveamento se reorganizar na hora. Jogo a jogo ou o torneio inteiro de uma vez.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <span class="feature-number">05</span>
+          <div class="feature-icon"><i class="fas fa-clock-rotate-left"></i></div>
+          <h3>História completa</h3>
+          <p>As 23 Copas de 1930 a 2022: campeões, artilheiros, títulos por país e as maiores goleadas de cada edição.</p>
+        </div>
+
+        <div class="feature-card" data-reveal>
+          <span class="feature-number">06</span>
           <div class="feature-icon"><i class="fas fa-chart-column"></i></div>
           <h3>Estatísticas</h3>
-          <p>Gráficos interativos com gols por edição, títulos por país e comparativos históricos de todos os campeonatos.</p>
+          <p>Gráficos de gols por edição, títulos por país e comparativos — por campeonato, sem misturar números entre competições diferentes.</p>
         </div>
 
-        <div class="feature-card" data-reveal data-delay="300">
-          <span class="feature-number">05</span>
-          <div class="feature-icon"><i class="fas fa-circle-question"></i></div>
-          <h3>Quiz Interativo</h3>
-          <p>Teste seus conhecimentos com 10 perguntas aleatórias por rodada sobre a história da Copa do Mundo.</p>
+        <div class="feature-card" data-reveal>
+          <span class="feature-number">07</span>
+          <div class="feature-icon"><i class="fas fa-bell"></i></div>
+          <h3>Notificações dos jogos</h3>
+          <p>Avisos 15 minutos antes, no apito inicial e no fim de jogo — agendados mesmo com o app fechado.</p>
         </div>
 
-        <div class="feature-card" data-reveal data-delay="400">
-          <span class="feature-number">06</span>
-          <div class="feature-icon"><i class="fas fa-location-dot"></i></div>
-          <h3>Estádios</h3>
-          <p>Conheça os 16 estádios da Copa 2026 nos EUA, Canadá e México, com capacidade e informações detalhadas.</p>
+        <div class="feature-card" data-reveal>
+          <span class="feature-number">08</span>
+          <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+          <h3>Funciona offline</h3>
+          <p>Tudo que já foi baixado continua disponível sem internet, em qualquer campeonato. O app avisa quando os dados podem estar desatualizados.</p>
         </div>
 
       </div>
@@ -189,54 +362,50 @@
 
         <div class="about-content">
           <span class="section-tag" data-reveal>Sobre o app</span>
-          <h2 class="section-title" data-reveal data-delay="100">
-            Feito para quem vive<br>a paixão pelo futebol
-          </h2>
-          <p data-reveal data-delay="200">
-            O Calm Cup é um aplicativo desenvolvido com atenção aos detalhes para
-            os apaixonados pela Copa do Mundo. Com design moderno em tema escuro com
-            detalhes em dourado, você vive cada momento do maior torneio de futebol.
+          <h2 class="section-title" data-reveal>Feito para quem acompanha<br>mais de um campeonato</h2>
+          <p data-reveal>
+            O Calm Cup começou como um app só da Copa do Mundo 2026 e cresceu para
+            cobrir onze competições, cada uma com seu formato próprio — sem virar
+            uma colcha de retalhos.
           </p>
-          <p data-reveal data-delay="300">
-            Desenvolvido em Flutter e disponível gratuitamente para Android, o app
-            reúne dados completos da Copa 2026 e um acervo histórico de 1930 a 2022,
-            tudo em português brasileiro.
+          <p data-reveal>
+            Desenvolvido em Flutter, gratuito, em português, sem anúncios e sem
+            cadastro. Os dados vêm de fontes públicas e abertas de futebol.
           </p>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
+          <!-- TROCAR: link real da Play Store -->
           <a href="SEU_LINK_PLAY_STORE" class="btn-primary" target="_blank" rel="noopener"
-             style="margin-top:12px;" data-reveal data-delay="400">
-            <i class="fab fa-google-play"></i>
-            Baixar gratuitamente
+             style="margin-top:12px;" data-reveal>
+            <i class="fab fa-google-play"></i> Baixar gratuitamente
           </a>
         </div>
 
         <div class="about-highlights">
-          <div class="highlight-item" data-reveal="right" data-delay="100">
+          <div class="highlight-item" data-reveal>
             <div class="highlight-icon"><i class="fas fa-mobile-screen"></i></div>
             <div>
-              <h4>Interface moderna</h4>
-              <p>Design dark elegante com navegação simples e fluida para a melhor experiência</p>
+              <h4>Interface escura</h4>
+              <p>Tema grafite com detalhes em dourado, pensado para ler placar à noite</p>
             </div>
           </div>
-          <div class="highlight-item" data-reveal="right" data-delay="200">
+          <div class="highlight-item" data-reveal>
             <div class="highlight-icon"><i class="fas fa-database"></i></div>
             <div>
-              <h4>Dados atualizados</h4>
-              <p>Informações da Copa 2026 sincronizadas via API pública e confiável</p>
+              <h4>Dados abertos</h4>
+              <p>Fontes públicas e gratuitas, sem chave de API e sem intermediário pago</p>
             </div>
           </div>
-          <div class="highlight-item" data-reveal="right" data-delay="300">
+          <div class="highlight-item" data-reveal>
             <div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
             <div>
-              <h4>Privacidade total</h4>
-              <p>Nenhum dado pessoal é coletado. Suas simulações ficam somente no seu aparelho</p>
+              <h4>Privacidade</h4>
+              <p>Sem cadastro, sem rastreamento. Só o ranking do bolão envia algo — e apenas se você escolher um apelido</p>
             </div>
           </div>
-          <div class="highlight-item" data-reveal="right" data-delay="400">
+          <div class="highlight-item" data-reveal>
             <div class="highlight-icon"><i class="fas fa-star"></i></div>
             <div>
               <h4>100% gratuito</h4>
-              <p>Sem anúncios, sem cobranças ocultas. O Calm Cup é completamente gratuito</p>
+              <p>Sem anúncios, sem assinatura, sem compra dentro do app</p>
             </div>
           </div>
         </div>
@@ -248,48 +417,48 @@
   <!-- ═══════════ CTA ═══════════ -->
   <section class="cta">
     <div class="cta-container">
-      <span class="cta-icon" data-reveal="scale">⚽</span>
-      <h2 data-reveal data-delay="100">Pronto para a Copa 2026?</h2>
-      <p data-reveal data-delay="200">
-        Baixe o Calm Cup agora e fique por dentro de tudo sobre
-        o maior torneio de futebol do mundo.
+      <span class="cta-icon" data-reveal>⚽</span>
+      <h2 data-reveal>Baixe e acompanhe tudo</h2>
+      <p data-reveal>
+        Onze campeonatos, bolão com ranking, simulador e história — de graça,
+        sem anúncios, direto no seu Android.
       </p>
-      <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
-      <a href="SEU_LINK_PLAY_STORE" class="btn-primary btn-large" target="_blank" rel="noopener"
-         data-reveal data-delay="300">
-        <i class="fab fa-google-play"></i>
-        Baixar na Play Store
+      <!-- TROCAR: link real da Play Store -->
+      <a href="SEU_LINK_PLAY_STORE" class="btn-primary btn-large" target="_blank" rel="noopener" data-reveal>
+        <i class="fab fa-google-play"></i> Baixar na Play Store
       </a>
     </div>
   </section>
 
-  <!-- ═══════════ FOOTER ═══════════ -->
+  <!-- ═══════════ RODAPÉ ═══════════ -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
         <a href="index.html" class="footer-logo">
-          <img src="logo.png" alt="Calm Cup" class="footer-logo-img">
+          <img src="logo.png" alt="" class="footer-logo-img">
           <span class="logo-text">Calm <span class="gold">Cup</span></span>
         </a>
-        <p>O seu companheiro para a Copa do Mundo 2026.<br>Disponível gratuitamente para Android.</p>
+        <p>Onze campeonatos de futebol em um só app.<br>Gratuito para Android.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Aplicativo</h4>
+          <a href="#campeonatos">Campeonatos</a>
           <a href="#funcionalidades">Funcionalidades</a>
           <a href="#sobre">Sobre</a>
-          <!-- Substitua SEU_LINK_PLAY_STORE pelo link real -->
+          <!-- TROCAR: link real da Play Store -->
           <a href="SEU_LINK_PLAY_STORE" target="_blank" rel="noopener">Baixar</a>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
           <a href="termos-de-uso.html">Termos de Uso</a>
           <a href="politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="contato.html">Contato</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Calm Cup. Todos os direitos reservados.</p>
+      <p>&copy; <span id="year">2026</span> Calm Cup. Todos os direitos reservados.</p>
     </div>
   </footer>
 
